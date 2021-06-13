@@ -141,6 +141,17 @@ int main()
 			p2[i-n2-1-nn2-1]=10+(int)(s2[i]-'A');
 	}
 	
+	//periodebis gatanabreba
+	if (nnn1==0)
+		nnn1=1;
+	if (nnn2==0)
+		nnn2=1;
+	nnn=nnn1*nnn2/__gcd(nnn1,nnn2);
+	for (int i=nnn1; i<nnn; i++)
+		p1[i]=p1[i%nnn1];
+	for (int i=nnn2; i<nnn; i++)
+		p2[i]=p2[i%nnn2];
+	
 	//wiladebis gatanabreba
 	nn=max(nn1,nn2);
 	if (nn1>=nn2)
@@ -166,21 +177,8 @@ int main()
 		np[(i-dz2+nnn2)%nnn2]=p2[i];
 	for (int i=0; i<nnn2; i++)
 		p2[i]=np[i];
-	reverse(p1,p1+nnn1);
-	reverse(p2,p2+nnn2);
-	
-	//periodebis gatanabreba
-	if (nnn1==0)
-		nnn1=1;
-	if (nnn2==0)
-		nnn2=1;
-	nnn=nnn1*nnn2/__gcd(nnn1,nnn2);
-	for (int i=nnn1; i<nnn; i++)
-		p1[i]=p1[i%nnn1];
-	for (int i=nnn2; i<nnn; i++)
-		p2[i]=p2[i%nnn2];
-	
-	
+	reverse(p1,p1+nnn);
+	reverse(p2,p2+nnn);
 	
 	//mtelebis gatanabreba
 	n=max(n1,n2);
